@@ -1,4 +1,7 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
+import 'package:mixfoodapp/Page/notification.dart';
 
 class Models {
   String freslist;
@@ -37,7 +40,7 @@ class Models {
 List<Models> listmodels = [
   Models(
     freslist: 'Assets/videorecipe1.png',
-    txt: '4,5',
+    txt: '4.5',
     time: '15:10',
     title: 'How to make sushi at home',
     image1: 'Assets/unsplas.png',
@@ -54,7 +57,7 @@ List<Models> listmodels = [
   Models(
     freslist: 'Assets/video5.png',
     image1: 'Assets/unsplash1.png',
-    txt: '4,5',
+    txt: '4.5',
     time: '15:10',
     title: ' mack sandwich',
     ramen: 'Assets/populer2.png',
@@ -117,22 +120,6 @@ List<Models> listmodel2 = [
     Poppulername: 'Niki \nSamantha',
     savev1: '',
   ),
-  // Models(
-  //   freslist: '',
-  //   image1: '',
-  //   txt: '',
-  //   time: '',
-  //   title: '',
-  //   ramen: '',
-  //   poppuler1: '',
-  //   recentre1: '',
-  //   make: '',
-  //   burger: '',
-  //   recentmake1: '',
-  //   poppulerpers: 'asserts/Avatar4.png',
-  //   Poppulername: 'Roberta\n  Anny',
-  //   savev1: '',
-  // ),
 ];
 
 class Model {
@@ -144,6 +131,7 @@ class Model {
   String saveretitle;
   String unsplash1;
   String devlop;
+
   Model({
     required this.saverecipe,
     required this.duration,
@@ -161,27 +149,76 @@ List<Model> saverec = [
     saverecipe: 'Assets/videorecipe1.png',
     duration: '15:10',
     bookmark: 'Assets/Bookmark.png',
-    text: '5,0',
-    playbutton: 'Assets/Playbutton.png',
-    saveretitle: 'Easy oatmeal recipe', unsplash1: 'Assets/unsplash1.png',
-    devlop: 'By robeera anny'
+    text: '5.0',
+    playbutton: 'Assets/Playbutton1.png',
+    saveretitle: 'Easy oatmeal recipe',
+    unsplash1: 'Assets/unsplash1.png',
+    devlop: 'By robeera anny',
   ),
   Model(
-    saverecipe: 'Assets/videorecipe2.png',
-    bookmark: 'Assets/Bookmark.png',
-    duration: '15:10',
-    playbutton: 'Assets/Playbutton.png',
-    text: '4,5',
-    saveretitle: 'How to make french toast', unsplash1: 'Assets/unsplash2.png', devlop: 'By Niki Samaratha'
-
-
-  ),
+      saverecipe: 'Assets/videorecipe2.png',
+      bookmark: 'Assets/Bookmark.png',
+      duration: '15:10',
+      playbutton: 'Assets/Playbutton1.png',
+      text: '4.5',
+      saveretitle: 'How to make french toast',
+      unsplash1: 'Assets/unsplash2.png',
+      devlop: 'By Niki Samaratha'),
   Model(
-    saverecipe: 'Assets/videorecipe3.png',
+      saverecipe: 'Assets/videorecipe3.png',
+      bookmark: 'Assets/Bookmark.png',
+      duration: '15:10',
+      playbutton: 'Assets/Playbutton1.png',
+      text: '4.9',
+      saveretitle: 'How to make sushi at home',
+      unsplash1: 'Assets/unsplash3.png',
+      devlop: 'By james  Wolden'),
+];
+
+class Model1 {
+  String ingredients;
+  String ingredientsname;
+
+  Model1({
+    required this.ingredients,
+    required this.ingredientsname,
+  });
+}
+
+List<Model1> recipedetails = [
+  Model1(ingredients: 'Assets/ingredients1.png', ingredientsname: 'Bread'),
+  Model1(ingredients: 'Assets/ingre2.png', ingredientsname: 'Eggs'),
+  Model1(ingredients: 'Assets/ingredients1.png', ingredientsname: 'Milk'),
+  Model1(ingredients: 'Assets/ingre2.png', ingredientsname: 'Butter'),
+  Model1(ingredients: 'Assets/ingredients1.png', ingredientsname: 'Vanila')
+];
+
+class Model2 {
+  String m1;
+  String duration;
+  String bookmark;
+
+  Model2({
+    required this.m1,
+    required this.duration,
+    required this.bookmark,
+  });
+}
+
+List<Model2> mypro = [
+  Model2(
+    m1: 'Assets/v1.png',
+    duration: '15:10',
+    bookmark: 'Assets/Bookmark.png',
+  ),
+  Model2(
+    m1: 'Assets/v2.png',
     bookmark: 'Assets/Bookmark.png',
     duration: '15:10',
-    playbutton: 'Assets/Playbutton.png',
-    text: '4,9',
-    saveretitle: 'How to make sushi at home', unsplash1: 'Assets/unsplash3.png', devlop: 'By james  Wolden'
+  ),
+  Model2(
+    m1: 'Assets/v3.png',
+    bookmark: 'Assets/Bookmark.png',
+    duration: '15:10',
   ),
 ];

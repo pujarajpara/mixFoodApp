@@ -2,13 +2,12 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mixfoodapp/Product_Details.dart';
 
 import 'HomePage.dart';
 import 'Page/Bottombar.dart';
-import 'Page/HomeIcon.dart';
-import 'Page/Notificaton_Icon.dart';
-import 'Page/Person_Icon.dart';
+
+import 'Page/createrecipe.dart';
+import 'Page/notification.dart';
 import 'Page/saveIcon.dart';
 
 void main() {

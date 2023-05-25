@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mixfoodapp/Page/person.dart';
 import 'package:mixfoodapp/Page/saveIcon.dart';
-import 'package:mixfoodapp/Product_Details.dart';
 
-import 'HomeIcon.dart';
-import 'Notificaton_Icon.dart';
-import 'Person_Icon.dart';
+
+
+import 'createrecipe.dart';
+import 'notification.dart';
+import 'home.dart';
 
 class Bottomtabbar extends StatefulWidget {
   const Bottomtabbar({Key? key}) : super(key: key);
@@ -17,20 +19,24 @@ class Bottomtabbar extends StatefulWidget {
 class _BottomtabbarState extends State<Bottomtabbar> {
   int currentTab = 0;
   final screens = const <Widget>[
-    ProductDetalis(),
+    home(),
     saveIcon(),
-    notificationIcon(),
-    personIcon(),
+    notification(),
+    person(),
+
   ];
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = ProductDetalis();
+  Widget currentScreen = home();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: currentScreen,
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const createrecipe()));
+          },
           child: Icon(
             Icons.add,
           ),
@@ -50,7 +56,7 @@ class _BottomtabbarState extends State<Bottomtabbar> {
                       minWidth: 70,
                       onPressed: () {
                         setState(() {
-                          currentScreen = ProductDetalis();
+                          currentScreen = home();
                           currentTab = 0;
                         });
                       },
@@ -102,7 +108,7 @@ class _BottomtabbarState extends State<Bottomtabbar> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.person,
+                            Icons.notifications,
                             color: currentTab == 2 ? Colors.red : Colors.grey,
                           ),
                         ],
@@ -114,14 +120,16 @@ class _BottomtabbarState extends State<Bottomtabbar> {
                     MaterialButton(
                       minWidth: 40,
                       onPressed: () {
-                        currentScreen = screens[3];
-                        currentTab = 3;
+                        setState(() {
+                          currentScreen = screens[3];
+                          currentTab = 3;
+                        });
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.notifications,
+                            Icons.person,
                             color: currentTab == 3 ? Colors.red : Colors.grey,
                           ),
                         ],
@@ -136,4 +144,8 @@ class _BottomtabbarState extends State<Bottomtabbar> {
     //   ),
     //),
   }
+
+
+
+
 }

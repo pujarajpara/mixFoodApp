@@ -1,31 +1,31 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mixfoodapp/Constants/Color.dart';
 import 'package:mixfoodapp/Constants/model.dart';
 import 'package:mixfoodapp/Constants/text.dart';
-import 'package:mixfoodapp/Page/HomeIcon.dart';
-import 'package:mixfoodapp/Page/Notificaton_Icon.dart';
-import 'package:mixfoodapp/Page/Person_Icon.dart';
+import 'package:mixfoodapp/Page/createrecipe.dart';
+import 'package:mixfoodapp/Page/notification.dart';
 import 'package:mixfoodapp/Page/saveIcon.dart';
 
-import 'Page/Bottombar.dart';
 
-class ProductDetalis extends StatefulWidget {
-  const ProductDetalis({Key? key}) : super(key: key);
+
+class home extends StatefulWidget {
+  const home({Key? key}) : super(key: key);
 
   @override
-  State<ProductDetalis> createState() => _ProductDetalisState();
+  State<home> createState() => _homeState();
 }
 
-class _ProductDetalisState extends State<ProductDetalis> {
+class _homeState extends State<home> {
   late TabController _tabController;
   int isSec = 0;
   List category = ["Salad", "Breakfast", "Appetizer", "Noodle", "hello"];
 
-
   final PageStorageBucket bucket = PageStorageBucket();
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,27 +39,24 @@ class _ProductDetalisState extends State<ProductDetalis> {
                 padding: EdgeInsets.only(left: 20, top: 80, right: 120),
                 child: Text(
                   "Find best recipes \nfor Cooking",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                bottom: 0,
-              ),
-              child: Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      hintText: 'Search recipes',
-                      prefixIcon: const Icon(
-                        Icons.search,
-                        size: 25,
-                      )),
-                ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+              child: TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    hintText: 'Search recipes',
+                    prefixIcon: const Icon(
+                      Icons.search,
+                      size: 25,
+                    )),
               ),
             ),
             Padding(
@@ -80,7 +77,10 @@ class _ProductDetalisState extends State<ProductDetalis> {
                         ),
                         Text(
                           "See all",
-                          style: TextStyle(fontSize: 15, color: Colors.red),
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.red,
+                              fontWeight: FontWeight.w600),
                         ),
                       ],
                     ),
@@ -148,20 +148,59 @@ class _ProductDetalisState extends State<ProductDetalis> {
                                               ],
                                             ),
                                           ),
-                                          const Padding(
-                                            padding: EdgeInsets.only(
-                                                top: 50, left: 45),
-                                            child: Image(
-                                                image: AssetImage(
-                                                    'Assets/Playbutton.png')),
-                                          ),
-                                          const Spacer(),
                                           Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 140),
-                                            child: Image.asset(
-                                                ("Assets/Duration.png")),
-                                          )
+                                            padding: const EdgeInsets.only(
+                                                left: 80, top: 60),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(33),
+                                              child: BackdropFilter(
+                                                filter: ImageFilter.blur(
+                                                    sigmaX: 3.0, sigmaY: 3.0),
+                                                child: Container(
+                                                  height: 48,
+                                                  width: 48,
+                                                  alignment: Alignment.center,
+                                                  padding:
+                                                      const EdgeInsets.only(left: 2),
+                                                  decoration: const BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Color(0x4A303030)),
+                                                  child: const Icon(
+                                                    Icons.play_arrow_rounded,
+                                                    color: Colors.white,
+                                                    size: 30,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 120, top: 150),
+                                            child: ClipRRect(
+                                              child: BackdropFilter(
+                                                filter: ImageFilter.blur(
+                                                    sigmaX: 5, sigmaY: 5),
+                                                child: Container(
+                                                  width: 50,
+                                                  height: 29,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    color: Color(0x4A303030),
+                                                  ),
+                                                  child: const Center(
+                                                    child: Text("15:10",
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 12)),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ]),
                                   )),
                               Positioned(
@@ -184,9 +223,9 @@ class _ProductDetalisState extends State<ProductDetalis> {
                             children: [
                               Text(listmodels[index].title,
                                   style: TextStyle(
-                                    fontSize: 16,
-                                    color: ColorsNeutral.Neutral90,
-                                  )),
+                                      fontSize: 16,
+                                      color: ColorsNeutral.Neutral90,
+                                      fontWeight: FontWeight.w600)),
                               Icon(Icons.more_horiz),
                             ],
                           ),
@@ -206,6 +245,8 @@ class _ProductDetalisState extends State<ProductDetalis> {
                                 listmodels[index].make,
                                 style: TextStyle(
                                   color: ColorsNeutral.Neutral40,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
                                 ),
                               )
                             ],
@@ -264,9 +305,11 @@ class _ProductDetalisState extends State<ProductDetalis> {
                             child: Center(
                               child: Text(
                                 category[index],
-                                style: (TextStyle(color: index == isSec
-                                    ? Colors.white
-                                    : Colors.red,)),
+                                style: (TextStyle(
+                                    color: index == isSec
+                                        ? Colors.white
+                                        : Colors.red,
+                                    fontWeight: FontWeight.w600)),
                               ),
                             ),
                           ),
@@ -279,7 +322,7 @@ class _ProductDetalisState extends State<ProductDetalis> {
               height: 20,
             ),
             SizedBox(
-              height: 280,
+              height: 250,
               child: Padding(
                 padding: const EdgeInsets.only(left: 13),
                 child: ListView.builder(
@@ -289,11 +332,11 @@ class _ProductDetalisState extends State<ProductDetalis> {
                     return Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 40),
+                          padding: const EdgeInsets.only(top: 50),
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 10),
-                            height: 280,
-                            width: 180,
+                            height: 250,
+                            width: 170,
                             decoration: BoxDecoration(
                               color: const Color(0xfff1f1f1),
                               borderRadius: BorderRadius.circular(20),
@@ -304,7 +347,7 @@ class _ProductDetalisState extends State<ProductDetalis> {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.only(
-                                  top: 50,
+                                  top: 40,
                                 ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -314,7 +357,8 @@ class _ProductDetalisState extends State<ProductDetalis> {
                                       listmodels[index].poppuler1,
                                       style: TextStyle(
                                           color: ColorsNeutral.Neutral90,
-                                          fontSize: 15),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600),
                                     ),
                                     Row(
                                       mainAxisAlignment:
@@ -322,21 +366,22 @@ class _ProductDetalisState extends State<ProductDetalis> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.only(
-                                              left: 15, top: 70),
+                                              left: 15, top: 60),
                                           child: Text(
                                             "10 min",
                                             style: (TextStyle(
                                                 color: ColorsNeutral.Neutral90,
-                                                fontSize: 20)),
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w600)),
                                           ),
                                         ),
                                         Padding(
                                           padding: const EdgeInsets.only(
-                                              right: 15, top: 70),
+                                              right: 15, top: 60),
                                           child: Column(
                                             children: [
                                               Image.asset(
-                                                ("Assets/Bookmark.png"),
+                                                ("Assets/Bookmark123.png"),
                                               ),
                                             ],
                                           ),
@@ -350,21 +395,23 @@ class _ProductDetalisState extends State<ProductDetalis> {
                           ),
                         ),
                         Positioned(
-                          bottom: 60,
+                          bottom: 35,
                           right: 140,
                           child: Text(
                             "Time",
                             style: TextStyle(
-                              fontSize: 15,
-                              color: ColorsNeutral.Neutral30,
-                            ),
+                                fontSize: 12,
+                                color: ColorsNeutral.Neutral30,
+                                fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center,
                           ),
                         ),
                         Positioned(
                             left: 20,
                             top: -15,
-                            child: Image.asset(listmodels[index].ramen)),
+                            child: Image.asset(
+                              listmodels[index].ramen,
+                            )),
                       ],
                     );
                   },
@@ -381,14 +428,18 @@ class _ProductDetalisState extends State<ProductDetalis> {
                   children: [
                     Text(
                       'Recent recipe',
-                      style: CustomTextStyle.poppinsBoldh5,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                          color: ColorsNeutral.Neutral90),
                     ),
                     Row(
                       children: const [
-                        Text(
-                          "See all",
-                          style: TextStyle(fontSize: 15, color: Colors.red),
-                        ),
+                        Text("See all",
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.red,
+                                fontWeight: FontWeight.w600)),
                         Icon(
                           Icons.arrow_forward,
                           color: Colors.red,
@@ -411,7 +462,7 @@ class _ProductDetalisState extends State<ProductDetalis> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(8),
                             child: Image.asset(
                               listmodel2[index].recentre1,
                             ),
@@ -423,7 +474,8 @@ class _ProductDetalisState extends State<ProductDetalis> {
                               overflow: TextOverflow.ellipsis,
                               softWrap: false,
                               maxLines: 2,
-                              style: CustomTextStyle.poppinsBoldlabel,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 14),
                             ),
                           ),
                           Padding(
@@ -431,7 +483,9 @@ class _ProductDetalisState extends State<ProductDetalis> {
                             child: Text(
                               listmodel2[index].recentmake1,
                               style: TextStyle(
-                                  color: ColorsNeutral.Neutral40, fontSize: 13),
+                                  fontWeight: FontWeight.w400,
+                                  color: ColorsNeutral.Neutral40,
+                                  fontSize: 13),
                             ),
                           ),
                         ],
