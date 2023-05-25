@@ -194,31 +194,30 @@ List<Model1> recipedetails = [
 ];
 
 class Model2 {
-  String m1;
-  String duration;
-  String bookmark;
+  String my1;
+  String recipename;
+  String rating;
 
   Model2({
-    required this.m1,
-    required this.duration,
-    required this.bookmark,
+    required this.my1,
+    required this.recipename,
+    required this.rating,
   });
 }
 
-List<Model2> mypro = [
+List<Model2> myprofileinf = [
   Model2(
-    m1: 'Assets/v1.png',
-    duration: '15:10',
-    bookmark: 'Assets/Bookmark.png',
+      my1: 'Assets/v1.png',
+      rating: '5.0',
+      recipename: 'How to make Italian \n Spaghetti at home'),
+  Model2(
+    my1: 'Assets/v2.png',
+    recipename: 'Simple chicken meal \n prep dishes ',
+    rating: '4.7',
   ),
   Model2(
-    m1: 'Assets/v2.png',
-    bookmark: 'Assets/Bookmark.png',
-    duration: '15:10',
-  ),
-  Model2(
-    m1: 'Assets/v3.png',
-    bookmark: 'Assets/Bookmark.png',
-    duration: '15:10',
+    my1: 'Assets/v3.png',
+    recipename: 'Japanese fried rice',
+    rating: '4.7',
   ),
 ];

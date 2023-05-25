@@ -138,9 +138,10 @@ class _personState extends State<person> {
               ),
             ),
             ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: const EdgeInsets.only(left: 15, top: 10),
-              itemCount: saverec.length,
+              itemCount: myprofileinf.length,
               itemBuilder: (_, index) {
                 return Column(
                   children: [
@@ -151,11 +152,11 @@ class _personState extends State<person> {
                       child: Stack(
                         children: [
                           Container(
-                            height: 200,
+                              height: 200,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                     image: AssetImage(
-                                      saverec[index].saverecipe,
+                                      myprofileinf[index].my1,
                                     ),
                                     fit: BoxFit.cover),
                                 borderRadius: BorderRadius.circular(15),
@@ -184,23 +185,22 @@ class _personState extends State<person> {
                                               size: 18,
                                             ),
                                             Text(
-                                              saverec[index].text,
+                                              myprofileinf[index].rating,
                                               style: TextStyle(
-                                                  color: ColorsNeutral.Neutral0,
-                                                  fontSize: 14),
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w600,
+                                                  color:
+                                                      ColorsNeutral.Neutral0),
                                             ),
                                           ],
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 150),
-                                        child: Text(
-                                          "12 ingredients",
-                                          style: TextStyle(
-                                              color: ColorsNeutral.Neutral0,
-                                              fontSize: 12),
-                                        ),
-                                      )
+                                      // Text(
+                                      //   myprofileinf[index].recipename,
+                                      //   style: TextStyle(
+                                      //       color: ColorsNeutral.Neutral0,
+                                      //       fontSize: 12),
+                                      // )
                                     ]),
                               )),
                         ],
@@ -217,3 +217,6 @@ class _personState extends State<person> {
     );
   }
 }
+
+
+// https://www.figma.com/file/V4n8wPD0UkOa7TpaLR62Bl/Food-Recipe-App-(Community)?type=design&node-id=0-1&t=akI9bxFqAfKdYC6C-0
